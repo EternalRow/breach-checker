@@ -12,7 +12,7 @@ Error: Process completed with exit code 22.
 
 https://github.com/EternalRow/breach-checker/actions/runs/45927205766
 
-
+Po nieudanym uruchomieniu tag latest wskazywał na wersję sprzed commita, jest to istotne, żeby osoba pobierająca najnowszy obraz nie pobrała programu zawierającego błędy
 
 docker pull ghcr.io/eternalrow/breach-checker-backend:latest
 latest: Pulling from eternalrow/breach-checker-backend
@@ -58,3 +58,5 @@ b05b4664f667: Layer already exists
 0ba51f9c0aed: Layer already exists 
 5d30ed3b6f7e: Layer already exists 
 latest: digest: sha256:774211b0d5ce5628edbc88fee7a5351596b3b8ea8bf74e43c349afb023123b30 size: 2199
+
+Token służył do nadpisywania stanu pakietów, w zależności od nadawanych uprawnień, istneje możliwość odczytu. Tutaj zadziałały zarówno push, jak i pull, z powodu uprawnienia write:packages
