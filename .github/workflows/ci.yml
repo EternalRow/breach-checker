@@ -41,7 +41,7 @@ jobs:
       - name: Budowanie obrazu produkcyjnego
         run: docker build -t "$IMAGE:$GITHUB_SHA" -t "$IMAGE:latest" backend
       - name: Publikacja
-        run: docker push --all-tags "$IMAGE"
+        run: docker push "$IMAGE:$GITHUB_SHA"
 
   build-frontend:
     runs-on: ubuntu-24.04
@@ -57,7 +57,7 @@ jobs:
     - name: Budowanie obrazu produkcyjnego
       run: docker build -t "$IMAGE:$GITHUB_SHA" -t "$IMAGE:latest" frontend
     - name: Publikacja
-      run: docker push --all-tags "$IMAGE"
+      run: docker push "$IMAGE:$GITHUB_SHA"
 
   verify:
     needs: [build-and-push, build-frontend]
