@@ -101,12 +101,12 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - name: backend
-      - run: |
+        run: |
           docker pull "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-backend:$GITHUB_SHA"
           docker tag "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-backend:$GITHUB_SHA" "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-backend:latest"
           docker push "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-backend:$GITHUB_SHA"
       - name: frontend
-      - run: |
+        run: |
           docker pull "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-frontend:$GITHUB_SHA"
           docker tag "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-frontend:$GITHUB_SHA" "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-frontend:latest"
           docker push "ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/breach-checker-frontend:$GITHUB_SHA"        
