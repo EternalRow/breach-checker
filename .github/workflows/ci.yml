@@ -78,6 +78,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
       - name: Pobranie obrazu z rejestru
         run: docker compose pull backend
+      - name: Pobranie 2
         run: docker compose pull frontend
       - name: Uruchomienie całego projektu
         run: docker compose up -d --wait
