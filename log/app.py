@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-
+from prometheus_client import Counter
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -14,6 +14,8 @@ def log_attempt():
         "found": bool(data.get("found")),
     }
     print(f"log: {entry}", flush=True)
+    ctr=Counter("log_attempts", "<opis>", ["found"])
+    ctr.labels(found=entry["found"]).inc()
     return jsonify({"status": "logged"}), 201
 
 @app.get("/health")
